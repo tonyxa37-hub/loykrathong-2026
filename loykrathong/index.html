@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>สมมาน้ำอีสานบ้านเฮา RERU 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#fdf3dc;--mute:#aab3d8;--card:rgba(18,26,66,.88);--line:#34428a;--gold:#ffc65c;--rose:#ff8fb1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:#0b1230;color:var(--ink);font:16px/1.55 Sarabun,sans-serif;min-height:100vh}
+h1,h2,h3,button,nav{font-family:Mitr,Sarabun,sans-serif}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+nav{position:sticky;top:0;z-index:20;display:flex;gap:4px;overflow-x:auto;padding:8px 10px;background:rgba(11,18,48,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav a{color:var(--mute);text-decoration:none;padding:6px 12px;border-radius:99px;white-space:nowrap;font-size:14px}
+nav a.on{background:var(--gold);color:#3a2300}
+main{position:relative;z-index:2;max-width:920px;margin:0 auto;padding:56px 16px 60px}
+.pg{display:none}.pg.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:12px 0}
+h1{font-size:clamp(28px,7vw,52px);font-weight:500;margin:0;line-height:1.15;text-shadow:0 0 30px rgba(255,198,92,.45)}
+h2{font-size:24px;font-weight:500;margin:0 0 6px}h3{font-size:17px;font-weight:500;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 12px}
+.btn{border:0;border-radius:99px;padding:11px 22px;font-size:16px;cursor:pointer;background:var(--gold);color:#3a2300;text-decoration:none;display:inline-block}
+.btn.g{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.hero p{max-width:520px;margin:0;font-size:18px}
+input,select,textarea{width:100%;background:#0e1738;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:10px;font:inherit;margin:4px 0 10px}
+label{font-size:14px;color:var(--mute)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.opt{background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:8px;cursor:pointer;font-size:14px;text-align:center}
+.opt.on{border-color:var(--gold);background:rgba(255,198,92,.15)}
+.opt svg{width:100%;height:70px;display:block}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.big{cursor:pointer;text-align:center;padding:26px 16px}.big:hover{border-color:var(--gold)}
+.big .e{font-size:44px}
+.prev{display:grid;place-items:center;height:210px}.prev svg{width:230px;height:190px;filter:drop-shadow(0 0 20px rgba(255,198,92,.4))}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+.chips .opt{padding:6px 12px;border-radius:99px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px}
+.note{font-size:13px;color:var(--gold);border:1px dashed var(--gold);border-radius:10px;padding:8px 10px;margin:10px 0}
+.bar{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:14px}.bar b{height:14px;border-radius:7px;background:linear-gradient(90deg,#7b5cff,var(--gold));transition:width 1s}.bar span{min-width:150px}
+.num{font:500 36px Mitr;color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:6px;border-bottom:1px solid var(--line);text-align:left}
+.tw{overflow-x:auto}
+.fl{position:fixed;width:90px;height:76px;z-index:3;pointer-events:none}
+.fl svg{width:100%;height:100%;filter:drop-shadow(0 0 10px rgba(255,198,92,.7))}
+.fl i{position:absolute;left:50%;top:-20px;transform:translateX(-50%);font:normal 12px Sarabun;background:rgba(11,18,48,.75);padding:2px 8px;border-radius:99px;white-space:nowrap;max-width:200px;overflow:hidden;text-overflow:ellipsis}
+#modal{position:fixed;inset:0;z-index:50;background:rgba(5,8,25,.8);display:none;place-items:center}#modal.on{display:grid}
+.ci{background:#0e1738;border:1px solid var(--line);border-radius:14px;padding:6px;cursor:pointer;text-align:center;color:var(--ink);transition:transform .2s}.ci:hover{transform:translateY(-4px);border-color:var(--gold)}
+.ci svg{width:100%;height:90px}
+.hero{min-height:74vh;justify-content:flex-start;padding-top:6vh}
+.kick{color:var(--gold);font-size:15px;letter-spacing:.04em}
+.gold{background:linear-gradient(180deg,#fff6d6 10%,#ffc65c 60%,#e08a2e);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 0 22px rgba(255,198,92,.45))}
+.th{font-size:clamp(22px,5vw,32px);color:var(--ink)}
+.lead{max-width:480px;color:#dfe4ff}
+.big2{padding:14px 30px;font-size:18px;box-shadow:0 0 28px rgba(255,198,92,.35)}.btn.g.big2{box-shadow:none;background:rgba(11,18,48,.5)}
+.live{font-size:14px;color:var(--mute)}.live b{color:var(--gold);font:500 20px Mitr}
+.flow{display:flex;gap:10px;flex-wrap:wrap;margin-top:34vh}
+.flow div{flex:1;min-width:130px;background:rgba(11,18,48,.6);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14px}
+.flow span{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#3a2300;margin-right:8px;font-size:13px}
+.ln{position:fixed;bottom:-40px;width:14px;height:20px;border-radius:5px 5px 7px 7px;background:radial-gradient(#ffe6a0,#ff9a3d);box-shadow:0 0 18px 6px rgba(255,170,60,.45);animation:up linear infinite;z-index:1;pointer-events:none}
+@keyframes up{to{transform:translate(40px,-115vh);opacity:0}}
+#hm{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:10px;z-index:30;width:40px;height:40px;border-radius:50%;background:rgba(11,18,48,.8);border:1px solid var(--line);place-items:center;text-decoration:none;display:none}
+.uni{display:flex;align-items:center;gap:12px;font:500 17px Mitr}.uni small{font:400 13px Sarabun;color:var(--mute)}
+.crest{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);font:500 13px Mitr;box-shadow:0 0 18px rgba(255,198,92,.45);background:rgba(11,18,48,.6)}
+.foot{display:flex;gap:18px;flex-wrap:wrap;margin-top:34vh;font-size:14px}.foot a{color:var(--mute)}
+#dock{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:6;display:none;flex-direction:column;align-items:center;gap:6px}
+#dk-k svg{width:130px;height:110px;filter:drop-shadow(0 0 14px #ffc65c)}
+.fl.mine{z-index:5}.fl.mine svg{filter:drop-shadow(0 0 14px #ffc65c) drop-shadow(0 0 32px rgba(255,198,92,.85))}
+.fl b.you{position:absolute;left:50%;top:100%;transform:translateX(-50%);font:500 12px Mitr;color:#3a2300;background:var(--gold);padding:1px 10px;border-radius:99px;white-space:nowrap}
+.wl{text-align:center;font:500 20px Mitr;color:var(--gold);min-height:34px;margin:4px 0 10px;text-shadow:0 0 14px rgba(255,198,92,.5);word-break:break-word}
+.fl i.me{top:auto;bottom:100%;white-space:normal;max-width:230px;width:max-content;text-align:center;overflow:visible;background:rgba(255,198,92,.92);color:#3a2300;font-size:13px;padding:4px 10px;border-radius:12px;margin-bottom:4px}
+@media (prefers-reduced-motion:reduce){.ln{animation:none;opacity:.5}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<a id="hm" href="#home" aria-label="กลับหน้าแรก">🏠</a>
+<main>
+<section class="pg" id="pg-home"><div id="lns" aria-hidden="true"></div><div class="hero">
+<div class="uni"><span class="crest">RERU</span><div>มหาวิทยาลัยราชภัฏร้อยเอ็ด<br><small>Roi Et Rajabhat University</small></div></div><p class="kick">คืนวันเพ็ญเดือนสิบสอง</p>
+<h1 class="gold">Sommanam Isan<br>Ban Hao RERU 2026</h1><h2 class="th">สมมาน้ำอีสานบ้านเฮา</h2>
+<p class="lead">ลอยกระทงใต้แสงจันทร์เต็มดวงจากที่ไหนก็ได้ แต่งกระทงของคุณ เขียนคำอธิษฐาน แล้วปล่อยลงสระแก้วราชภูมิ</p>
+<div class="row"><a class="btn big2" href="#register">เริ่มลอยกระทง</a><a class="btn g big2" href="#river">ชมแม่น้ำ</a></div>
+<div class="live"><b id="h-n">0</b> กระทงกำลังลอยอยู่ตอนนี้</div></div>
+<div class="foot"><a href="#gallery">แกลเลอรี</a><a href="#stats">สถิติ</a><a href="#about">เกี่ยวกับกิจกรรม</a></div></section>
+
+<section class="pg" id="pg-register"><h2>ลงทะเบียนเข้าร่วม</h2>
+<div class="card"><div class="note">ข้อมูลของคุณใช้เพื่อสถิติของกิจกรรมเท่านั้น และไม่แสดงต่อผู้เข้าร่วมคนอื่น ต้นแบบนี้เก็บข้อมูลในเบราว์เซอร์ของคุณเอง ห้ามใช้ข้อมูลจริง</div>
+<div class="chips"><button class="opt on" id="t-s">นักศึกษา</button><button class="opt" id="t-g">บุคคลทั่วไป</button></div>
+<label>ชื่อ</label><input id="r-n" autocomplete="off">
+<div id="f-s"><label>นามสกุล</label><input id="r-l"><label>ชั้นปี</label><select id="r-y"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+<label>คณะ</label><select id="r-f"></select><label>สาขาวิชา</label><input id="r-d"></div>
+<div id="f-g" style="display:none"><label>อายุ</label><input id="r-a" type="number" min="1" max="120"></div>
+<label style="display:flex;gap:8px;align-items:center;color:var(--ink)"><input type="checkbox" id="r-c" style="width:auto;margin:0">ฉันยอมรับการจัดเก็บข้อมูลตามข้อความข้างต้น</label>
+<p id="r-e" style="color:var(--rose);margin:8px 0 0"></p><div class="row"><button class="btn" id="r-go">ลงทะเบียน</button></div></div></section>
+
+<section class="pg" id="pg-mode"><h2>ลอยกระทงของคุณ</h2><p class="sub">กระทงพร้อมแล้ว เลือกว่าจะลอยอย่างไร</p><div class="two">
+<div class="card big" id="m-s" tabindex="0" role="button"><div class="e">🪷</div><h3>Solo · ลอยคนเดียว</h3><p class="sub">ลอยกระทงของคุณเองได้ทันที</p></div>
+<div class="card big" id="m-g" tabindex="0" role="button"><div class="e">🏮</div><h3>Group · ลอยเป็นกลุ่ม</h3><p class="sub">สร้างกลุ่มและชวนเพื่อนมาลอยด้วยกัน</p></div></div></section>
+
+<section class="pg" id="pg-group"><h2>กลุ่มลอยกระทง</h2><div class="card" id="g-box"></div></section>
+
+<section class="pg" id="pg-choose"><h2>เลือกกระทง</h2><div class="card"><div class="prev" id="c-prev"></div><div class="grid" id="c-grid"></div>
+<div class="row"><button class="btn" id="c-go">ต่อไป: ตกแต่ง</button></div></div></section>
+
+<section class="pg" id="pg-decorate"><h2>ตกแต่งกระทง</h2><div class="card"><div class="prev" id="d-prev"></div>
+<h3>สีดอกไม้</h3><div class="chips" id="d-col"></div><h3>ชนิดดอกไม้</h3><div class="chips" id="d-typ"></div><h3>เพิ่มเติม</h3><div class="chips" id="d-ext"></div>
+<div class="row"><button class="btn g" id="d-bk">ย้อนกลับ</button><button class="btn" id="d-go">ยืนยันกระทง</button></div></div></section>
+
+<section class="pg" id="pg-wish"><h2>เขียนคำอธิษฐาน</h2><div class="card"><div class="prev" id="w-prev"></div><div id="w-live" class="wl"></div>
+<textarea id="w-t" rows="3" maxlength="60" placeholder="ขอให้ทุกคนมีความสุข"></textarea><div class="chips" id="w-q"></div>
+<label style="display:flex;gap:8px;align-items:center;color:var(--ink)"><input type="checkbox" id="w-p" style="width:auto;margin:0" checked>อนุญาตให้แสดงคำอธิษฐานในแกลเลอรี (ไม่แสดงชื่อ)</label>
+<div class="row"><button class="btn g" id="w-bk">ย้อนกลับ</button><button class="btn" id="w-go">ต่อไป</button></div></div></section>
+
+<section class="pg" id="pg-river"><div class="row" style="justify-content:space-between;align-items:center"><div><h2>สระแก้วราชภูมิ</h2><span class="sub" id="v-c"></span></div></div>
+<p class="sub" style="margin-top:60vh">แตะผิวน้ำเพื่อให้เกิดระลอก · กระทงในฉากไม่แสดงข้อมูลส่วนตัว</p></section>
+
+<section class="pg" id="pg-gallery"><h2>แกลเลอรีกระทง</h2><div class="chips" id="y-f"></div><div class="grid" id="y-g"></div></section>
+
+<section class="pg" id="pg-stats"><h2>สถิติ</h2><div class="note">ตัวเลขรวมจากผู้เข้าร่วมทั้งหมดที่ลงทะเบียน</div><div class="two" id="s-n"></div><div class="card"><h3>แยกตามคณะ</h3><div id="s-f"></div></div><div class="card"><h3>แยกตามชั้นปี</h3><div id="s-y"></div></div></section>
+
+<section class="pg" id="pg-about"><h2>เกี่ยวกับกิจกรรม</h2>
+<div class="card"><h3>ประเพณีลอยกระทง</h3><p>ประเพณีลอยกระทงจัดในคืนวันเพ็ญเดือนสิบสอง เพื่อขอบคุณแม่น้ำที่หล่อเลี้ยงชีวิต และขอขมาที่เราอาจทำให้น้ำไม่สะอาด</p></div>
+<div class="card"><h3>แนวคิดลอยกระทงออนไลน์</h3><p>ให้นักศึกษา บุคลากร และคนทั่วไปร่วมประเพณีได้จากทุกที่ โดยไม่ต้องเดินทาง และไม่เกิดขยะลงแหล่งน้ำ</p></div>
+<div class="card"><h3>ผู้จัด</h3><p>มหาวิทยาลัยราชภัฏร้อยเอ็ด<br><span class="sub">หน่วยงานผู้จัดและช่องทางติดต่อ: (ตัวอย่าง ใส่ข้อมูลจริงในภายหลัง)</span></p></div></section>
+
+<section class="pg" id="pg-admin"><div id="a-box"></div></section>
+</main>
+<div id="dock"><div id="dk-k"></div><button class="btn big2" id="v-go">🪷 ลอยกระทง</button></div>
+<div id="modal"><div class="card" style="text-align:center;max-width:340px"><div class="prev" id="m-v"></div><p id="m-t"></p><button class="btn" id="m-x">ปิด</button></div></div>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+var BASES={classic:['ใบตอง','<path d="M14 66Q60 96 106 66L98 58Q60 78 22 58Z" fill="#4fa05a"/><path d="M22 58Q60 78 98 58L92 52Q60 68 28 52Z" fill="#7fcf7a"/>'],
+lotus:['ดอกบัว','<g fill="#ffd3e2"><ellipse cx="28" cy="64" rx="16" ry="9" transform="rotate(-25 28 64)"/><ellipse cx="92" cy="64" rx="16" ry="9" transform="rotate(25 92 64)"/><ellipse cx="45" cy="70" rx="16" ry="9"/><ellipse cx="75" cy="70" rx="16" ry="9"/></g><ellipse cx="60" cy="72" rx="16" ry="9" fill="#fff0f5"/>'],
+mixed:['ดอกไม้หลากสี','<ellipse cx="60" cy="68" rx="42" ry="16" fill="#6fbf73"/><circle cx="30" cy="66" r="8" fill="#ff8fb1"/><circle cx="48" cy="72" r="8" fill="#ffc65c"/><circle cx="72" cy="72" r="8" fill="#b79cff"/><circle cx="90" cy="66" r="8" fill="#fff"/>'],
+gold:['สีทอง','<path d="M16 62Q60 96 104 62L96 54Q60 74 24 54Z" fill="#e0a63a"/><path d="M24 54Q60 74 96 54L90 48Q60 62 30 48Z" fill="#ffd877"/>'],
+fantasy:['แฟนตาซี','<ellipse cx="60" cy="68" rx="44" ry="15" fill="#5b3fd6"/><ellipse cx="60" cy="62" rx="38" ry="12" fill="#8f7bff"/><circle cx="26" cy="56" r="3" fill="#9ff"/><circle cx="96" cy="58" r="3" fill="#9ff"/>'],
+modern:['ร่วมสมัย','<path d="M22 56h76l-8 28H30z" fill="#f4f0e6"/><path d="M26 62h68" stroke="#e0a63a" stroke-width="3"/>']};
+var COL={pink:['ชมพู','#ff8fb1'],gold:['ทอง','#ffc65c'],white:['ขาว','#ffffff'],violet:['ม่วง','#b79cff'],blue:['ฟ้า','#7fd6ff']};
+var TYP={round:'ดอกกลม',star:'ดอกดาว',lotus:'บัวตูม'};
+var FAC=['คณะครุศาสตร์และการพัฒนามนุษย์','คณะบริหารธุรกิจและการบัญชี','คณะศิลปศาสตร์และวิทยาศาสตร์','คณะนิติรัฐศาสตร์','คณะพยาบาลศาสตร์','คณะเทคโนโลยีสารสนเทศ'];
+var WQ=['ขอให้การเรียนประสบความสำเร็จ','ขอให้ครอบครัวมีความสุข','ขอให้สุขภาพแข็งแรง','ขอให้พบเจอสิ่งดี ๆ'];
+function R(a){return a[Math.random()*a.length|0]}
+function wtag(t){t=(t||'').trim();if(!t)return'';var a=[t],n=t.length;if(n>16){var m=Math.ceil(n/2),sp=t.lastIndexOf(' ',m+3);if(sp<4)sp=m;a=[t.slice(0,sp).trim(),t.slice(sp).trim()]}
+var L=Math.max(a[0].length,a[1]?a[1].length:0),fs=Math.max(3.6,Math.min(7.5,78/(L*.62))),h=a[1]?22:16,y0=a[1]?76:80;
+var r='<rect x="14" y="'+y0+'" width="92" height="'+h+'" rx="6" fill="#fff4cf" stroke="#e0a63a" stroke-width="1.2"/>';
+a.forEach(function(s,i){r+='<text x="60" y="'+(y0+(a[1]?8.5+i*8:11))+'" text-anchor="middle" font-size="'+fs+'" fill="#4a2c00" font-family="Sarabun,sans-serif" font-weight="600">'+esc(s)+'</text>'});return r}
+function kSVG(k,sw){var c=COL[k.color]||COL.gold,f=c[1],fl='';
+[[38,52],[60,46],[82,52],[50,58],[70,58]].forEach(function(p){var x=p[0],y=p[1];
+if(k.ftype==='star')fl+='<path d="M'+x+' '+(y-8)+'L'+(x+3)+' '+(y-2)+'L'+(x+9)+' '+y+'L'+(x+3)+' '+(y+3)+'L'+x+' '+(y+9)+'L'+(x-3)+' '+(y+3)+'L'+(x-9)+' '+y+'L'+(x-3)+' '+(y-2)+'Z" fill="'+f+'"/>';
+else if(k.ftype==='lotus')fl+='<path d="M'+x+' '+(y-10)+'Q'+(x+9)+' '+y+' '+x+' '+(y+6)+'Q'+(x-9)+' '+y+' '+x+' '+(y-10)+'Z" fill="'+f+'"/>';
+else fl+='<circle cx="'+x+'" cy="'+y+'" r="7" fill="'+f+'"/><circle cx="'+x+'" cy="'+y+'" r="2.5" fill="#fff6c8"/>'});
+var lf=k.leaf?'<path d="M20 60Q30 44 44 56Q30 62 20 60ZM100 60Q90 44 76 56Q90 62 100 60Z" fill="#5fbf6a"/>':'';
+var cn=k.candle?'<rect x="57" y="26" width="6" height="22" rx="2" fill="#fff4cf"/><path d="M60 8c6 7 5 13 0 16-5-3-6-9 0-16z" fill="#ffb83d"/><path d="M60 14c3 4 2 7 0 9-2-2-3-5 0-9z" fill="#fff6c8"/>':'';
+var ic=k.incense?'<path d="M82 48 90 22M88 50 100 28" stroke="#c08a52" stroke-width="2" stroke-linecap="round"/><circle cx="90" cy="22" r="2" fill="#ff7a3d"/><circle cx="100" cy="28" r="2" fill="#ff7a3d"/>':'';
+return '<svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">'+(BASES[k.base]||BASES.classic)[1]+lf+fl+cn+ic+(sw?wtag(k.wish):'')+'</svg>'}
+
+/* data */
+var API='https://script.google.com/macros/s/AKfycbwJKMyjPP5uTgKLFJk4OaoZlyDlN_p_DxIacs4UAkAwwoxgISUc1mCWC54it2Cn5QK_/exec';
+function on(){return API.indexOf('http')===0}
+function post(b,n){n=n||0;if(!on())return;fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(b)}).then(function(r){if(!r.ok)throw 0}).catch(function(){if(n<4)setTimeout(function(){post(b,n+1)},1500*(n+1)+Math.random()*2000)})}
+function get(q){if(!on())return Promise.resolve(null);return fetch(API+'?'+q).then(function(r){return r.json()}).catch(function(){return null})}
+function pull(){return get('action=krathongs').then(function(r){if(!r||!r.krs)return;r.krs.forEach(function(k){if(!D.krs.some(function(x){return x.id===k.id}))D.krs.push(k)})})}
+var D=null;try{D=JSON.parse(localStorage.getItem('reru'))}catch(e){}
+function seed(){var d={parts:[],groups:[],mem:[],krs:[],wishes:[],me:null,grp:null,draft:null,pend:null,set:{name:'สมมาน้ำอีสานบ้านเฮา RERU 2026',open:true}},ids=Object.keys(BASES),cs=Object.keys(COL),ts=Object.keys(TYP);
+for(var i=0;i<0;i++){var st=Math.random()<.7,p={id:'m'+i,type:st?'student':'general',name:'ตัวอย่าง '+(i+1),mock:1};
+if(st){p.year=1+(Math.random()*4|0);p.faculty=R(FAC);p.dept='จำลอง'}else p.age=15+(Math.random()*50|0);d.parts.push(p);
+d.krs.push({id:'k'+i,pid:p.id,base:R(ids),ftype:R(ts),color:R(cs),leaf:Math.random()>.5,candle:1,incense:Math.random()>.5,hidden:0,wish:R(WQ),pub:Math.random()>.3,gid:null})}
+return d}
+if(!D||!D.parts||D.parts.some(function(p){return p.faculty&&FAC.indexOf(p.faculty)<0}))D=seed();
+(function(){var sd=/^m\d+$/,ok={};D.parts=D.parts.filter(function(p){return !sd.test(p.id)});D.parts.forEach(function(p){ok[p.id]=1});D.krs=D.krs.filter(function(k){return ok[k.pid]});D.groups=D.groups.filter(function(g){return g.id!=='g0'});D.mem=D.mem.filter(function(m){return ok[m.pid]&&m.gid!=='g0'})})();
+function save(){try{var S=JSON.parse(localStorage.getItem('reru')||'null'),bad=function(x){return /^m\d+$/.test(x.id||'')||/^m\d+$/.test(x.pid||'')||x.id==='g0'||x.gid==='g0'};
+if(S&&S.parts){['parts','groups','krs'].forEach(function(a){(S[a]||[]).forEach(function(x){if(!bad(x)&&!D[a].some(function(y){return y.id===x.id}))D[a].push(x)})});(S.mem||[]).forEach(function(x){if(!bad(x)&&!D.mem.some(function(y){return y.gid===x.gid&&y.pid===x.pid}))D.mem.push(x)})}
+localStorage.setItem('reru',JSON.stringify(D))}catch(e){}}
+function resetSession(){D.me=null;D.draft=null;D.grp=null;D.joined=0;D.pend=null;save()}
+function me(){return D.parts.filter(function(p){return p.id===D.me})[0]}
+function go(h){location.hash=h}
+
+/* nav + routing */
+var PAGES=[['home','หน้าแรก'],['register','ลงทะเบียน'],['mode','Solo/Group'],['choose','เลือกกระทง'],['decorate','ตกแต่ง'],['wish','คำอธิษฐาน'],['river','แม่น้ำ'],['gallery','แกลเลอรี'],['stats','สถิติ'],['about','เกี่ยวกับ'],['admin','ผู้ดูแล']];
+
+var NEED={mode:1,group:1,choose:1,decorate:1,wish:1};
+function route(){var h=location.hash.slice(1)||'home',m=h.match(/^join-([A-Za-z0-9]+)$/);
+if(m){var g=D.groups.filter(function(x){return x.token===m[1]})[0];
+if(!g){get('action=group&token='+m[1]).then(function(r){if(r&&r.id){D.groups.push({id:r.id,token:m[1],owner:r.owner,name:''});save();route()}else{alert('ไม่พบกลุ่มนี้ ลิงก์อาจผิดหรือไม่ถูกต้อง');go('home')}});return}
+if(!D.me){D.pend=m[1];save();return go('register')}
+if(!D.mem.some(function(x){return x.gid===g.id&&x.pid===D.me})){post({action:'join',gid:g.id,pid:D.me});D.mem.push({gid:g.id,pid:D.me})}D.grp=g.id;D.joined=0;save();return go('river')}
+if(!$('pg-'+h))h='home';if(h==='home'&&D.me&&(D.krs.some(function(k){return k.pid===D.me})||friend()))resetSession();
+if(NEED[h]&&!D.me){return go('register')}
+if((h==='choose'||h==='decorate'||h==='wish')&&!D.draft)D.draft={base:'classic',ftype:'round',color:'gold',leaf:1,candle:1,incense:1,wish:'',pub:true};
+document.querySelectorAll('.pg').forEach(function(e){e.classList.toggle('on',e.id==='pg-'+h)});
+$('hm').style.display=h==='home'?'none':'grid';
+window.scrollTo(0,0);clearFloats();$('dock').style.display='none';(I[h]||function(){})();mode=h}
+var mode='home',I={};
+addEventListener('hashchange',route);
+
+/* register */
+var rt='student';$('r-f').innerHTML=FAC.map(function(f){return '<option>'+f+'</option>'}).join('');
+function setT(t){rt=t;$('t-s').classList.toggle('on',t==='student');$('t-g').classList.toggle('on',t==='general');$('f-s').style.display=t==='student'?'':'none';$('f-g').style.display=t==='student'?'none':''}
+$('t-s').onclick=function(){setT('student')};$('t-g').onclick=function(){setT('general')};
+$('r-go').onclick=function(){var n=$('r-n').value.trim(),e=$('r-e');e.textContent='';
+if(!n)return e.textContent='กรุณากรอกชื่อ';if(!$('r-c').checked)return e.textContent='กรุณายอมรับการจัดเก็บข้อมูลก่อน';
+var p={id:'p'+Date.now()+Math.random().toString(36).slice(2,6),type:rt,name:n,created:new Date().toISOString()};
+if(rt==='student'){if(!$('r-l').value.trim()||!$('r-d').value.trim())return e.textContent='กรุณากรอกนามสกุลและสาขาวิชา';p.last=$('r-l').value.trim();p.year=+$('r-y').value;p.faculty=$('r-f').value;p.dept=$('r-d').value.trim()}
+else{var a=+$('r-a').value;if(!a)return e.textContent='กรุณากรอกอายุ';p.age=a}
+D.parts.push(p);post({action:'register',p:p});D.me=p.id;var pd=D.pend;D.pend=null;save();go(pd?'join-'+pd:'choose')};
+
+I.register=function(){['r-n','r-l','r-d','r-a'].forEach(function(i){$(i).value=''});$('r-c').checked=false;$('r-y').selectedIndex=0;$('r-f').selectedIndex=0;$('r-e').textContent='';setT('student')};
+/* mode + group */
+$('m-s').onclick=function(){D.grp=null;save();go('river')};
+$('m-g').onclick=function(){go('group')};
+['m-s','m-g'].forEach(function(i){$(i).onkeydown=function(e){if(e.key==='Enter')$(i).click()}});
+I.group=function(){var b=$('g-box'),g=D.groups.filter(function(x){return x.id===D.grp})[0];
+if(!g){var tk=Math.random().toString(36).slice(2,8),gid='g'+Date.now()+Math.random().toString(36).slice(2,5);D.groups.push({id:gid,name:'กลุ่มของ '+((me()||{}).name||''),owner:D.me,token:tk});post({action:'group',g:{id:gid,token:tk,owner:D.me}});D.mem.push({gid:gid,pid:D.me});D.grp=gid;save();g=D.groups[D.groups.length-1]}
+if(!g){b.innerHTML='<label>ตั้งชื่อกลุ่ม</label><input id="g-n" maxlength="30" placeholder="แก๊งเพื่อนสุดป่วน"><div class="chips">'+['แก๊งเพื่อนสุดป่วน','ฟิสิกส์พาเพลิน','คืนแห่งความทรงจำ','ครอบครัวของเรา'].map(function(n){return '<button class="opt" data-n="'+n+'">'+n+'</button>'}).join('')+'</div><div class="row"><button class="btn" id="g-mk">สร้างกลุ่ม</button></div>';
+b.querySelectorAll('[data-n]').forEach(function(x){x.onclick=function(){$('g-n').value=x.dataset.n}});
+$('g-mk').onclick=function(){var n=$('g-n').value.trim();if(!n)return;var t=Math.random().toString(36).slice(2,8),id='g'+Date.now();D.groups.push({id:id,name:n,owner:D.me,token:t});D.mem.push({gid:id,pid:D.me});D.grp=id;save();I.group()};return}
+var link=location.href.split('#')[0]+'#join-'+g.token,u=encodeURIComponent(link),cnt=D.mem.filter(function(x){return x.gid===g.id}).length;
+var kr=D.krs.filter(function(k){return k.gid===g.id&&!k.hidden});
+b.innerHTML='<p class="sub">ส่งลิงก์นี้ให้เพื่อน เพื่อนลงทะเบียนแล้วจะเข้ามาดูตอนคุณกดลอย (เพื่อนกดลอยไม่ได้)</p><label>ลิงก์เชิญ</label><input id="g-l" readonly value="'+link+'"><div class="row" style="margin-top:0"><button class="btn g" id="g-cp">คัดลอกลิงก์</button></div>'+
+'<div class="note">ต้นแบบ: ลิงก์ใช้งานได้เฉพาะในเบราว์เซอร์นี้ การเชิญเพื่อนข้ามอุปกรณ์จริงต้องเชื่อมต่อฐานข้อมูล ลองเปิดลิงก์ในแท็บใหม่เพื่อดูฝั่งเพื่อน</div><div class="row"><button class="btn g" id="g-sim" style="display:none"></button><button class="btn" id="g-nx">ต่อไป: ไปที่แม่น้ำ</button></div>';
+$('g-cp').onclick=function(){try{navigator.clipboard.writeText(link);this.textContent='คัดลอกแล้ว'}catch(e){$('g-l').select()}};
+$('g-sim').onclick=function(){var id='s'+Date.now();D.parts.push({id:id,type:'general',name:'เพื่อนจำลอง',age:20,mock:1});D.mem.push({gid:g.id,pid:id});D.krs.push({id:'k'+id,pid:id,base:R(Object.keys(BASES)),ftype:R(Object.keys(TYP)),color:R(Object.keys(COL)),leaf:1,candle:1,incense:0,hidden:0,wish:R(WQ),pub:true,gid:g.id});save();I.group()};
+$('g-nx').onclick=function(){go('river')}};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* choose/decorate/wish */
+function chips(id,obj,key,fn){$(id).innerHTML=Object.keys(obj).map(function(k){var v=obj[k];return '<button class="opt'+(D.draft[key]===k?' on':'')+'" data-k="'+k+'">'+(Array.isArray(v)&&v[1][0]==='#'?'<span class="sw" style="background:'+v[1]+'"></span>'+v[0]:v)+'</button>'}).join('');
+$(id).querySelectorAll('.opt').forEach(function(b){b.onclick=function(){D.draft[key]=b.dataset.k;save();fn()}})}
+I.choose=function(){$('c-prev').innerHTML=kSVG(D.draft);$('c-grid').innerHTML=Object.keys(BASES).map(function(k){return '<button class="opt'+(D.draft.base===k?' on':'')+'" data-k="'+k+'"><svg viewBox="0 0 120 100">'+BASES[k][1]+'</svg>'+BASES[k][0]+'</button>'}).join('');
+$('c-grid').querySelectorAll('.opt').forEach(function(b){b.onclick=function(){D.draft.base=b.dataset.k;save();I.choose()}})};
+$('c-go').onclick=function(){go('decorate')};
+I.decorate=function(){$('d-prev').innerHTML=kSVG(D.draft);chips('d-col',COL,'color',I.decorate);chips('d-typ',TYP,'ftype',I.decorate);
+$('d-ext').innerHTML=[['leaf','ใบตอง'],['candle','เทียน'],['incense','ธูป']].map(function(x){return '<button class="opt'+(D.draft[x[0]]?' on':'')+'" data-k="'+x[0]+'">'+x[1]+'</button>'}).join('');
+$('d-ext').querySelectorAll('.opt').forEach(function(b){b.onclick=function(){D.draft[b.dataset.k]=D.draft[b.dataset.k]?0:1;save();I.decorate()}})};
+$('d-bk').onclick=function(){go('choose')};$('d-go').onclick=function(){go('wish')};
+function wlive(){var v=$('w-t').value.trim(),e=$('w-live');$('w-prev').innerHTML=kSVG(Object.assign({},D.draft,{wish:v}),1);e.textContent=v||'คำอธิษฐานของคุณจะแสดงที่นี่';e.style.opacity=v?1:.5}
+I.wish=function(){$('w-prev').innerHTML=kSVG(D.draft);$('w-t').value=D.draft.wish||'';$('w-t').oninput=wlive;wlive();$('w-p').checked=!!D.draft.pub;
+$('w-q').innerHTML=WQ.map(function(q){return '<button class="opt">'+q+'</button>'}).join('');$('w-q').querySelectorAll('.opt').forEach(function(b){b.onclick=function(){$('w-t').value=b.textContent;wlive()}})};
+$('w-bk').onclick=function(){go('decorate')};
+$('w-go').onclick=function(){D.draft.wish=$('w-t').value.trim();D.draft.pub=$('w-p').checked;save();if(D.joined){D.joined=0;save();go('river')}else go('mode')};
+
+/* river */
+var fls=[],cnt=0;
+function clearFloats(){fls.forEach(function(f){f.d.remove()});fls=[]}
+function spawn(k,mine,once){var d=document.createElement('div');d.className='fl'+(mine?' mine':'');if(mine){d.style.width='130px';d.style.height='110px'}d.innerHTML=kSVG(k,mine)+(((k.pub||mine)&&k.wish)?'<i class="'+(mine?'me':'')+'">'+esc(k.wish)+((mine&&!k.pub)?' 🔒':'')+'</i>':'')+(mine?'<b class="you">▲ กระทงของคุณ</b>':'');document.body.appendChild(d);
+var by=mine?innerHeight-190:innerHeight*(.6+Math.random()*.3);var f={mine:mine,k:k,once:once,ty:innerHeight*.58,d:d,x:mine?innerWidth/2-65:once?innerWidth*.2:-100+Math.random()*innerWidth,by:by,sp:(mine||once)?.3:.2+Math.random()*.3,ph:Math.random()*6};fls.push(f);if(mine)rip.push({x:f.x+45,y:by+60,r:4,a:.9})}
+function part(){return D.me&&!D.krs.some(function(k){return k.pid===D.me&&k.gone})}
+var poll=null,shown={};
+function friend(){var g=D.groups.filter(function(x){return x.id===D.grp})[0];return D.me&&g&&g.owner!==D.me?g:null}
+function watch(){shown={};D.krs.forEach(function(k){shown[k.id]=1});poll=setInterval(function(){if(mode!=='river'||!friend()){clearInterval(poll);return}pull().then(function(){D.krs.forEach(function(k){if(k.gid===D.grp&&!shown[k.id]&&!k.hidden){shown[k.id]=1;spawn(k,false,true)}})})},3000)}
+I.river=function(){clearInterval(poll);if(friend()){watch()}else if(part()){D.krs.filter(function(k){return !k.hidden&&!k.gone&&k.pid===D.me}).slice(-1).forEach(function(k){spawn(k,true)})}else{pull().then(function(){if(mode==='river'&&!part()&&!friend()){clearFloats();D.krs.filter(function(k){return !k.hidden}).slice(-14).forEach(function(k){spawn(k,false)})}})}var can=!friend()&&!D.krs.some(function(k){return k.pid===D.me});$('dock').style.display=can?'flex':'none';$('dk-k').innerHTML=(can&&D.draft)?kSVG(D.draft,1):'';
+$('v-c').textContent=(D.krs.some(function(k){return k.pid===D.me})?'':'กดปุ่ม "ลอยกระทง" เพื่อปล่อยกระทงของคุณ · ')+'มหาวิทยาลัยราชภัฏร้อยเอ็ด';if(friend())$('v-c').textContent='รอเจ้าของกลุ่มกดลอย · มหาวิทยาลัยราชภัฏร้อยเอ็ด'};
+$('v-go').onclick=function(){if(friend()||D.krs.some(function(k){return k.pid===D.me}))return;var d=D.draft||{};if(!D.me)return go('register');if(!D.draft)return go('choose');
+var k=Object.assign({},d,{id:'k'+Date.now()+Math.random().toString(36).slice(2,6),pid:D.me,hidden:0,gid:D.grp||null});D.krs.push(k);post({action:'krathong',k:k});
+if(k.wish)D.wishes.push({pid:D.me,text:k.wish,pub:k.pub});save();clearFloats();I.river();$('v-c').textContent='มหาวิทยาลัยราชภัฏร้อยเอ็ด';};
+setInterval(function(){fls=fls.filter(function(f){return f.d.isConnected})},3000);
+setInterval(function(){if(mode==='river'&&!part()&&!friend()){var b=D.krs.length;pull().then(function(){D.krs.slice(b).forEach(function(k){if(!k.hidden)spawn(k,false)})})}},6000);
+
+I.home=function(){var L=$('lns');if(!L.children.length)for(var i=0;i<14;i++){var s=document.createElement('span');s.className='ln';s.style.left=(Math.random()*96)+'%';s.style.animationDuration=(14+Math.random()*14)+'s';s.style.animationDelay=(-Math.random()*20)+'s';s.style.transform='scale('+(.6+Math.random()*.8)+')';L.appendChild(s)}
+(part()?[]:D.krs.filter(function(k){return !k.hidden}).slice(-7)).forEach(function(k){spawn(k,false);fls[fls.length-1].by=innerHeight*(.74+Math.random()*.2)});
+$('h-n').textContent=D.krs.filter(function(k){return !k.hidden}).length};
+/* gallery */
+var gf='all';
+I.gallery=function(nf){if(!nf)pull().then(function(){if(mode==='gallery')I.gallery(1)});var ch='<button class="opt'+(gf==='all'?' on':'')+'" data-k="all">ทั้งหมด</button><button class="opt'+(gf==='grp'?' on':'')+'" data-k="grp">ของกลุ่ม</button>'+Object.keys(BASES).map(function(k){return '<button class="opt'+(gf===k?' on':'')+'" data-k="'+k+'">'+BASES[k][0]+'</button>'}).join('');
+$('y-f').innerHTML=ch;$('y-f').querySelectorAll('.opt').forEach(function(b){b.onclick=function(){gf=b.dataset.k;I.gallery()}});
+var L=D.krs.filter(function(k){return !k.hidden&&(gf==='all'||(gf==='grp'?k.gid:k.base===gf))}).slice().reverse();
+$('y-g').innerHTML=L.length?L.map(function(k,i){return '<button class="ci" data-i="'+i+'">'+kSVG(k)+'<div style="font-size:12px;color:var(--mute)">'+BASES[k.base][0]+'</div></button>'}).join(''):'<p class="sub">ยังไม่มีกระทงในหมวดนี้</p>';
+$('y-g').querySelectorAll('.ci').forEach(function(b){b.onclick=function(){var k=L[+b.dataset.i];$('m-v').innerHTML=kSVG(k);$('m-t').textContent=(k.pub&&k.wish)?k.wish:'ผู้ลอยเก็บคำอธิษฐานไว้เป็นส่วนตัว';$('modal').classList.add('on')}})};
+$('m-x').onclick=function(){$('modal').classList.remove('on')};
+
+/* stats */
+function bars(id,map){var mx=Math.max.apply(null,Object.keys(map).map(function(k){return map[k]}).concat(1));$(id).innerHTML=Object.keys(map).map(function(k){return '<div class="bar"><span>'+k+'</span><b style="width:0" data-w="'+map[k]/mx*100+'%"></b>'+map[k]+'</div>'}).join('');
+setTimeout(function(){$(id).querySelectorAll('b').forEach(function(b){b.style.width=b.dataset.w})},50)}
+function tally(){var st=D.parts.filter(function(p){return p.type==='student'}),f={},y={};FAC.forEach(function(x){f[x]=0});[1,2,3,4].forEach(function(x){y['ปี '+x]=0});st.forEach(function(p){f[p.faculty]=(f[p.faculty]||0)+1;y['ปี '+p.year]=(y['ปี '+p.year]||0)+1});return{st:st.length,f:f,y:y}}
+function drawStats(t,n){
+$('s-n').innerHTML=n.map(function(x){return '<div class="card"><div class="num" data-n="'+x[1]+'">0</div>'+x[0]+'</div>'}).join('');
+$('s-n').querySelectorAll('.num').forEach(function(e){var to=+e.dataset.n,s=0,t=setInterval(function(){s+=Math.ceil(to/25);if(s>=to){s=to;clearInterval(t)}e.textContent=s},30)});bars('s-f',t.f);bars('s-y',t.y)};
+
+I.stats=function(){get('action=stats').then(function(r){if(r&&r.total!=null)drawStats({f:r.fac,y:r.year},[['ผู้เข้าร่วม',r.total],['กระทง',r.krs],['นักศึกษา',r.students],['บุคคลทั่วไป',r.general],['กลุ่ม',r.groups]]);else{var t=tally();drawStats(t,[['ผู้เข้าร่วม',D.parts.length],['กระทง',D.krs.length],['นักศึกษา',t.st],['บุคคลทั่วไป',D.parts.length-t.st],['กลุ่ม',D.groups.length]])}})};
+/* admin (mock) */
+var adm=false;
+I.admin=function(){var b=$('a-box');if(on()){b.innerHTML='<div class="card"><h2>ผู้ดูแล</h2><p>ผู้ดูแลจัดการข้อมูลผ่าน Google Sheet โดยตรง เปิดด้วยบัญชี Google ของผู้ดูแล ถ้าต้องการซ่อนกระทง ให้แก้ค่าในคอลัมน์ hidden ของแท็บ Krathongs เป็น 1</p></div>';return}
+if(!adm){b.innerHTML='<div class="card" style="max-width:380px"><h2>เข้าสู่ระบบผู้ดูแล</h2><div class="note">ระบบจำลอง ไม่ปลอดภัยจริง ใช้รหัส admin เพื่อทดลองเท่านั้น</div><input id="a-p" type="password" placeholder="รหัสผ่านทดลอง"><button class="btn" id="a-go">เข้าสู่ระบบ</button></div>';
+$('a-go').onclick=function(){if($('a-p').value==='admin'){adm=true;I.admin()}else alert('รหัสไม่ถูกต้อง')};return}
+var t=tally(),pid={};D.parts.forEach(function(p){pid[p.id]=p});
+b.innerHTML='<h2>ภาพรวมผู้ดูแล</h2><div class="note">ระบบจำลอง ข้อมูลอยู่ในเบราว์เซอร์นี้เท่านั้น</div><div class="two"><div class="card"><div class="num">'+D.parts.length+'</div>ผู้เข้าร่วม</div><div class="card"><div class="num">'+D.krs.length+'</div>กระทง · '+D.groups.length+' กลุ่ม</div></div>'+
+'<div class="card"><h3>ผู้เข้าร่วม</h3><div class="tw"><table><tr><th>ชื่อ</th><th>ประเภท</th><th>รายละเอียด</th></tr>'+D.parts.slice(-40).map(function(p){return '<tr><td>'+esc(p.name+(p.last?' '+p.last:''))+'</td><td>'+(p.type==='student'?'นักศึกษา':'ทั่วไป')+'</td><td>'+(p.type==='student'?esc(p.faculty+' ปี '+p.year+' '+p.dept):'อายุ '+p.age)+'</td></tr>'}).join('')+'</table></div></div>'+
+'<div class="card"><h3>กลุ่ม</h3>'+D.groups.map(function(g){return '<p>'+esc(g.name)+' · '+D.mem.filter(function(m){return m.gid===g.id}).length+' คน</p>'}).join('')+'</div>'+
+'<div class="card"><h3>ตรวจสอบกระทงและคำอธิษฐาน</h3><div class="tw"><table>'+D.krs.slice(-30).map(function(k,i){return '<tr><td>'+BASES[k.base][0]+'</td><td>'+esc(k.wish||'-')+'</td><td><button class="opt" data-h="'+k.id+'">'+(k.hidden?'แสดง':'ซ่อน')+'</button></td></tr>'}).join('')+'</table></div></div>'+
+'<div class="card"><h3>ตั้งค่า/ส่งออก</h3><label>ชื่อกิจกรรม</label><input id="a-n" value="'+esc(D.set.name)+'"><div class="row"><button class="btn g" id="a-sv">บันทึกชื่อ</button><button class="btn" id="a-ex">ส่งออก CSV</button><button class="btn g" id="a-rs">รีเซ็ตข้อมูลทดลอง</button><button class="btn g" id="a-out">ออกจากระบบ</button></div></div>';
+b.querySelectorAll('[data-h]').forEach(function(x){x.onclick=function(){D.krs.forEach(function(k){if(k.id===x.dataset.h)k.hidden=k.hidden?0:1});save();I.admin()}});
+$('a-sv').onclick=function(){D.set.name=$('a-n').value;save()};$('a-out').onclick=function(){adm=false;I.admin()};
+$('a-rs').onclick=function(){if(confirm('ล้างข้อมูลทดลองทั้งหมดในเบราว์เซอร์นี้?')){D=seed();try{localStorage.removeItem('reru')}catch(e){}save();adm=false;go('home');route()}};
+$('a-ex').onclick=function(){var c='id,type,faculty,year,age\n'+D.parts.map(function(p){return [p.id,p.type,p.faculty||'',p.year||'',p.age||''].join(',')}).join('\n');
+var a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+c],{type:'text/csv'}));a.download='participants.csv';a.click()}};
+
+/* scene */
+var cv=$('bg'),cx=cv.getContext('2d'),W,H,rip=[],t=0,st=[];
+function size(){var r=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*r;cv.height=H*r;cx.setTransform(r,0,0,r,0,0);st=[];for(var i=0;i<80;i++)st.push([Math.random()*W,Math.random()*H*.4,Math.random()*1.4+.3])}
+addEventListener('resize',size);size();
+addEventListener('pointerdown',function(e){if(mode==='river'&&!e.target.closest('button,nav'))rip.push({x:e.clientX,y:e.clientY,r:4,a:.8})});
+var still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function skyline(hz){var u=Math.max(.45,Math.min(1,W/1000)),i,y=hz,w=[120,98,76,56,40,28,18,10],sx=W*.9,hx=W*.6;cx.fillStyle='#070b24';
+for(i=0;i<8;i++){cx.fillRect(sx-w[i]*u/2,y-12*u,w[i]*u,12*u);y-=12*u}
+cx.beginPath();cx.moveTo(sx-5*u,y);cx.lineTo(sx,y-50*u);cx.lineTo(sx+5*u,y);cx.fill();
+cx.fillRect(hx-110*u,hz-34*u,220*u,34*u);
+cx.beginPath();cx.moveTo(hx-130*u,hz-34*u);cx.lineTo(hx-92*u,hz-58*u);cx.lineTo(hx+92*u,hz-58*u);cx.lineTo(hx+130*u,hz-34*u);cx.fill();
+cx.beginPath();cx.moveTo(hx-80*u,hz-58*u);cx.lineTo(hx-50*u,hz-80*u);cx.lineTo(hx+50*u,hz-80*u);cx.lineTo(hx+80*u,hz-58*u);cx.fill();
+cx.beginPath();cx.moveTo(hx-6*u,hz-80*u);cx.lineTo(hx,hz-104*u);cx.lineTo(hx+6*u,hz-80*u);cx.fill();
+cx.fillStyle='#ffc65c';for(i=-4;i<=4;i++)cx.fillRect(hx+i*22*u-4*u,hz-26*u,8*u,14*u);
+cx.fillStyle='#ffe6a0';cx.beginPath();cx.arc(sx,y-52*u,2.5,0,7);cx.fill()}
+function draw(){t+=still?0:.016;var hz=H*.4,g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#090e2a');g.addColorStop(.4,'#1b1f6b');g.addColorStop(.41,'#10285a');g.addColorStop(1,'#07203d');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+cx.fillStyle='#fff';st.forEach(function(s){cx.globalAlpha=.35+.4*Math.sin(t*2+s[0]);cx.fillRect(s[0],s[1],s[2],s[2])});cx.globalAlpha=1;
+var mx=W*.74,my=hz*.55,rg=cx.createRadialGradient(mx,my,10,mx,my,150);rg.addColorStop(0,'rgba(255,243,200,.5)');rg.addColorStop(1,'rgba(255,243,200,0)');cx.fillStyle=rg;cx.fillRect(mx-150,my-150,300,300);
+cx.fillStyle='#fff6d6';cx.beginPath();cx.arc(mx,my,38,0,7);cx.fill();
+cx.fillStyle='rgba(255,243,200,.1)';cx.fillRect(mx-8,hz,16,H-hz);if(mode==='home')skyline(hz);
+cx.lineWidth=1.2;for(var y=hz+8;y<H;y+=18){cx.strokeStyle='rgba(190,210,255,'+(.08+(y-hz)/H*.15)+')';cx.beginPath();for(var x=0;x<=W;x+=12){var yy=y+Math.sin(x*.02+t*1.3+y*.06)*(2+(y-hz)*.012);x?cx.lineTo(x,yy):cx.moveTo(x,yy)}cx.stroke()}
+rip=rip.filter(function(r){return r.a>.02});rip.forEach(function(r){r.r+=1.4;r.a*=.97;cx.strokeStyle='rgba(255,243,200,'+r.a+')';cx.lineWidth=1.5;cx.beginPath();cx.ellipse(r.x,r.y,r.r,r.r*.4,0,0,7);cx.stroke()});
+fls.forEach(function(f){if(f.dead)return;if(f.mine&&!f.arr){f.by+=(f.ty-f.by)*.02;if(Math.abs(f.ty-f.by)<1.5)f.arr=1}else f.x+=f.sp;if(f.x>W+100){if(f.once){f.dead=1;f.d.remove();return}if(f.mine){f.k.gone=1;f.dead=1;f.d.remove();resetSession();setTimeout(function(){if(mode==='river'){clearFloats();I.river();$('v-c').textContent='ขอบคุณที่ร่วมลอยกระทง · ลงทะเบียนใหม่เพื่อลอยอีกครั้งได้'}},0);return}f.x=-100}var yy=f.by+Math.sin(f.x*.03+f.ph)*5;f.d.style.left=f.x+'px';f.d.style.top=yy+'px';f.d.style.transform='rotate('+Math.sin(f.x*.03+f.ph)*4+'deg)';if(Math.random()<.004)rip.push({x:f.x+45,y:yy+64,r:3,a:.5})});
+requestAnimationFrame(draw)}
+draw();
+resetSession();if(!/^#join-/.test(location.hash))location.hash='home';route();pull().then(function(){if(mode==='home'){clearFloats();I.home()}});
+</script>
+</body>
+</html>
